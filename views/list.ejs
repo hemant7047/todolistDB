@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>To Do list</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+
+<body></body>
+
+</html>
+<div class="box" id="heading">
+
+    <h1>
+        <%=listTitle %>
+    </h1>
+</div>
+<div class="box">
+
+    <%newListItems.forEach((item)=>{%>
+        <form action="/delete" method="post">
+            <div class="item">
+                <input type="checkbox" name="checkbox" value="<%=item._id%>" onChange="this.form.submit()">
+                <p>
+                    <%=item.name%>
+                </p>
+            </div>
+            <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+        </form>
+        <%});%>
+
+
+            <form action="/" class="item" method="post">
+                <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+                <button type="submit" name="list" value=<%=listTitle%>>+</button>
+            </form>
+</div>
+</body>
+<footer>
+    Copyright 2022© ♥ Hemant
+</footer>
+
+</html>
